@@ -1,34 +1,53 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Sidebar from "./Sidebar";
 import { useDragControls, motion, useScroll } from "framer-motion";
 import Header from "./Header";
 
 const Layout = ({ children, page }) => {
+  const ref = useRef();
   const dragControls = useDragControls();
-  const { scrollYProgress } = useScroll();
-  function startDrag(event) {
-    dragControls.start(event);
-  }
+  const { scrollY } = useScroll();
+  // function startDrag(event) {
+  //   dragControls.start(event);
+  // }
+
+  const variants = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+    },
+    exit: {
+      opacity: 0,
+    },
+  };
+
   useEffect(() => {
     window.history.scrollRestoration = "manual";
+    return () => {
+      window.history.scrollRestoration = "auto";
+    };
   }, []);
 
   return (
-    <motion.main onPointerDown={startDrag}>
+    <motion.main>
       <Header className={page === "services" ? "mx-auto" : ""} />
       <Sidebar variant={page} />
-      <div className="relative z-0 w-full h-full">
+      <div className="h-full" ref={ref}>
         <motion.div
-          dragConstraints={{ top: -3300, bottom: 0 }}
-          dragControls={dragControls}
-          dragMomentum={false}
+          dragConstraints={ref}
           dragElastic={0}
           // drag="y"
-          className=" transition-all ease-linear duration-75"
+          className="transition-all ease-linear duration-75"
           style={{
             transform: dragControls,
-            translateY: scrollYProgress,
           }}
+          onMeasureDragConstraints={console.log}
+          variants={variants}
+          initial="hiddden"
+          animate="visible"
+          exit="exit"
         >
           {children}
         </motion.div>

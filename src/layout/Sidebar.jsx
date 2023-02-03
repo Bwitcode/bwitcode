@@ -4,9 +4,28 @@ import { Link } from "react-router-dom";
 import servicesIcon from "../assets/icons/services.svg";
 import workIcon from "../assets/icons/book.svg";
 import aboutIcon from "../assets/icons/prisma.svg";
+import DisableClickSpamLink from "../components/DisableClickSpamLink";
 const Sidebar = ({ variant }) => {
   const [isRight, setRight] = useState(false);
   const sidebar = {
+    wordVisible: {
+      scale: 1,
+      x: "0%",
+      transition: {
+        duration: 1,
+        ease: "easeInOut",
+      },
+    },
+    wordHidden: {
+      x: "100%",
+      rotate: 180,
+    },
+    iconVisible: {
+      scale: 1,
+    },
+    iconHidden: {
+      scale: 0,
+    },
     visible: {
       scaleX: 1,
       x: 0,
@@ -59,7 +78,7 @@ const Sidebar = ({ variant }) => {
   };
   if (variant === "about") {
     return (
-      <aside className="w-full min-h-screen fixed flex top-0 left-0 justify-end z-10 pointer-events-none font-gotu text-4xl text-p">
+      <aside className="w-full min-h-screen fixed flex top-0 left-0 justify-end z-10 pointer-events-none font-gotu text-[2.5vw] text-p">
         <motion.div
           className="side-bar z-10"
           initial={{ display: "none" }}
@@ -82,26 +101,58 @@ const Sidebar = ({ variant }) => {
               initial="visible"
               exit="servicesToLeft"
             >
-              <motion.div className="h-full py-10 flex flex-col items-center justify-between">
-                <div className="icon-box-sidebar">
-                  <img src={servicesIcon} alt="services-icon" />
+              <motion.div className="h-full py-[25%] flex flex-col items-center justify-between">
+                <motion.div
+                  className="icon-box-sidebar"
+                  variants={sidebar}
+                  initial="iconHidden"
+                  animate="iconVisible"
+                  exit="iconHidden"
+                >
+                  <img
+                    className="w-6/12"
+                    src={servicesIcon}
+                    alt="services-icon"
+                  />
+                </motion.div>
+                <div className="overflow-hidden">
+                  <motion.p
+                    variants={sidebar}
+                    initial="wordHidden"
+                    animate="wordVisible"
+                    exit="wordHidden"
+                    className="writing-mode-vertical"
+                  >
+                    Services
+                  </motion.p>
                 </div>
-                <p className="rotate-180 translate-x-0 writing-mode-vertical">
-                  Services
-                </p>
               </motion.div>
             </motion.div>
           </Link>
         </motion.div>
         <motion.div className="side-bar">
           <motion.div className="works-sidebar" initial={{ scaleX: 1 }}>
-            <motion.div className="h-full py-10 flex flex-col items-center justify-between">
-              <div className="icon-box-sidebar">
-                <img src={workIcon} alt="works-icon" />
+            <motion.div className="h-full py-[25%] flex flex-col items-center justify-between">
+              <motion.div
+                className="icon-box-sidebar"
+                variants={sidebar}
+                initial="iconHidden"
+                animate="iconVisible"
+                exit="iconHidden"
+              >
+                <img className="w-6/12" src={workIcon} alt="works-icon" />
+              </motion.div>
+              <div className="overflow-hidden">
+                <motion.p
+                  variants={sidebar}
+                  initial="wordHidden"
+                  animate="wordVisible"
+                  exit="wordHidden"
+                  className="writing-mode-vertical"
+                >
+                  Wroks - soon
+                </motion.p>
               </div>
-              <p className="rotate-180 translate-x-0 writing-mode-vertical">
-                Wroks - soon
-              </p>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -120,13 +171,27 @@ const Sidebar = ({ variant }) => {
               initial="visible"
               exit="aboutToRight"
             >
-              <motion.div className="h-full py-10 flex flex-col items-center justify-between">
-                <div className="icon-box-sidebar">
-                  <img src={aboutIcon} alt="about-icon" />
+              <motion.div className="h-full py-[25%] flex flex-col items-center justify-between">
+                <motion.div
+                  variants={sidebar}
+                  initial="iconHidden"
+                  animate="iconVisible"
+                  exit="iconHidden"
+                  className="icon-box-sidebar"
+                >
+                  <img className="w-6/12" src={aboutIcon} alt="about-icon" />
+                </motion.div>
+                <div className="overflow-hidden">
+                  <motion.p
+                    variants={sidebar}
+                    initial="wordHidden"
+                    animate="wordVisible"
+                    exit="wordHidden"
+                    className="writing-mode-vertical"
+                  >
+                    About
+                  </motion.p>
                 </div>
-                <p className="rotate-180 translate-x-0 writing-mode-vertical">
-                  About
-                </p>
               </motion.div>
             </motion.div>
           </Link>
@@ -156,13 +221,27 @@ const Sidebar = ({ variant }) => {
         </motion.div>
         <motion.div className="side-bar">
           <motion.div className="works-sidebar" initial={{ scaleX: 1 }}>
-            <motion.div className="h-full py-10 flex flex-col items-center justify-between">
-              <div className="icon-box-sidebar">
-                <img src={workIcon} alt="works-icon" />
+            <motion.div className="h-full py-[25%] flex flex-col items-center justify-between">
+              <motion.div
+                className="icon-box-sidebar"
+                variants={sidebar}
+                initial="iconHidden"
+                animate="iconVisible"
+                exit="iconHidden"
+              >
+                <img className="w-6/12" src={workIcon} alt="works-icon" />
+              </motion.div>
+              <div className="overflow-hidden">
+                <motion.p
+                  variants={sidebar}
+                  initial="wordHidden"
+                  animate="wordVisible"
+                  exit="wordHidden"
+                  className="writing-mode-vertical"
+                >
+                  Wroks - soon
+                </motion.p>
               </div>
-              <p className="rotate-180 translate-x-0 writing-mode-vertical">
-                Wroks - soon
-              </p>
             </motion.div>
           </motion.div>
         </motion.div>

@@ -3,6 +3,12 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontSize: {
+        base: "1vw",
+        lg: "1.5vw",
+        xl: "2vw",
+        "2xl": "2.5vw",
+      },
       fontFamily: {
         gotu: "Gotu",
         krub: "Krub",

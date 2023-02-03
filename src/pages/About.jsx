@@ -46,24 +46,50 @@ const About = () => {
     },
   ];
 
+  const variants = {
+    titleVisible: {
+      y: 0,
+      transition: { duration: 1, ease: "easeInOut" },
+    },
+    titleHidden: {
+      y: "100%",
+    },
+  };
+
   return (
     <div>
       <Layout page={"about"}>
-        <motion.div
-          className="pt-44 overflow-hidden"
-          exit={{ display: "none" }}
-        >
+        <motion.div className="pt-44 overflow-hidden">
           <header className="wrapper">
             <div className="space-y-12">
               <div>
-                <h1 className="leading-normal text-9xl font-playfairDisplay">
-                  <span>Make</span> <br />
-                  <span>Everthing Easier</span>
+                <h1 className="text-[8vw] font-playfairDisplay">
+                  <span className="block contain-content pb-4">
+                    <motion.span
+                      className="block"
+                      variants={variants}
+                      initial="titleHidden"
+                      animate="titleVisible"
+                      exit="titleHidden"
+                    >
+                      Make
+                    </motion.span>
+                  </span>
+                  <span className="block contain-content pb-4 prespective-100">
+                    <motion.span
+                      className="block"
+                      variants={variants}
+                      initial="titleHidden"
+                      animate="titleVisible"
+                      exit="titleHidden"
+                    >
+                      Everthing Easier
+                    </motion.span>
+                  </span>
                 </h1>
-                <span className="absolute top-16 left-[500px]">
+                <span className="absolute top-[15%] left-[35%]">
                   <svg
-                    width="48"
-                    height="47"
+                    width="3vw"
                     viewBox="0 0 48 47"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -74,12 +100,12 @@ const About = () => {
                     />
                   </svg>
                 </span>
-                <p className="flex max-w-md pr-20 mx-auto mt-2">
+                <p className="flex max-w-[40%] pr-20 mx-auto mt-2">
                   We will prepare your tech stack and software delivery process
                   for a bright future.
                 </p>
               </div>
-              <div className="relative flex items-center justify-center max-w-fit">
+              <div className="relative flex items-center justify-center max-w-fit cursor-pointer">
                 <div className="w-12 h-12 rounded-full bg-services"></div>
                 <HiArrowLongDown size={48} className="absolute top-7" />
               </div>
@@ -88,12 +114,12 @@ const About = () => {
 
           <section className="relative py-12 wrapper bg-footer text-p">
             <div>
-              <h2 className="text-xl font-semibold uppercase">About us</h2>
+              <h2 className="text-[1.2vw] font-semibold uppercase">About us</h2>
               <div className="space-y-16">
                 <div>
                   <img
                     src={aboutUsFrame}
-                    className="relative pointer-events-none -left-16"
+                    className=" w-full relative pointer-events-none -left-16"
                     alt="person-with-pen"
                   />
                 </div>
@@ -117,12 +143,12 @@ const About = () => {
 
           <section className="wrapper">
             <div className="space-y-16">
-              <h2 className="capitalize font-semibold text-[32px] text-center">
+              <h2 className="capitalize font-semibold text-2xl text-center">
                 The team will turn your ideas into reality
               </h2>
 
               <div className="flex gap-24">
-                <div className="max-w-[270px] space-y-12 text-center">
+                <div className="max-w-[25%] space-y-12 text-center">
                   <p>
                     Bwitcode is a leading Development & Design expert company
                     providing superior Software, Web, Mobile and Creative
@@ -135,7 +161,7 @@ const About = () => {
                     Technology make up our team.
                   </p>
                 </div>
-                <div className="h-[456px] bg-footer w-full rounded-xl rounded-bl-[600px]">
+                <div className="h-[30vw] bg-footer w-full rounded-xl rounded-bl-[600px]">
                   {/* Video */}
                 </div>
               </div>
@@ -153,13 +179,13 @@ const About = () => {
                   return (
                     <li key={id}>
                       <div className="flex items-center justify-between">
-                        <p className="max-w-xs text-2xl font-gotu">{left}</p>{" "}
+                        <p className="max-w-[30%] text-lg font-gotu">{left}</p>{" "}
                         <img
-                          className="pointer-events-none "
+                          className="pointer-events-none w-[8vw]"
                           src={icon}
                           alt={id + "list"}
                         />
-                        <p className="max-w-xs">{right}</p>
+                        <p className="max-w-[30%]">{right}</p>
                       </div>
                       {id !== 4 && (
                         <div className="h-0.5 w-11/12 mx-auto my-10 bg-line rounded-sm"></div>
@@ -173,17 +199,17 @@ const About = () => {
 
           <section className="wrapper bg-alternative mt-12">
             <div className="flex items-center justify-between">
-              <img src={footerFrame} alt="" />
+              <img className="w-[12vw]" src={footerFrame} alt="" />
 
-              <div className="max-w-md text-center">
-                <h3 className="text-4xl font-gotu">Learn about our services</h3>
-                <p>
+              <div className="text-center">
+                <h3 className="text-2xl font-gotu">Learn about our services</h3>
+                <p className="max-w-[60%] mx-auto">
                   A selection of in house projects, client projects and upcoming
                   projects in our area's of practice.
                 </p>
               </div>
               <Link to="/services">
-                <img src={footerArrow} alt="" />
+                <img className="w-[10vw]" src={footerArrow} alt="" />
               </Link>
             </div>
           </section>
@@ -191,7 +217,7 @@ const About = () => {
           <footer className="wrapper bg-footer text-p">
             <div className="flex flex-col space-y-16">
               <div className="flex items-center justify-between">
-                <h2 className=" leading-normal font-playfairDisplay text-5xl max-w-sm">
+                <h2 className=" leading-normal font-playfairDisplay text-[3.5vw] max-w-[40%]">
                   What our help with something?
                 </h2>
                 <div className="font-bold flex pt-4 gap-20">
@@ -221,38 +247,42 @@ const About = () => {
                   <Link
                     to="malito:bwitcode@gmail.com"
                     target="_blank"
-                    className="h-20 w-20 bg-alternative flex justify-center relative z-10 items-center rounded-full "
+                    className="w-[4vw] h-[4vw] bg-alternative flex justify-center relative z-10 items-center rounded-full "
                   >
                     <img
                       src={letter}
-                      className="pointer-events-none"
+                      className="pointer-events-none w-6/12"
                       alt="letter"
                     />
                   </Link>
-                  <div className="w-64 flex justify-end items-center pr-12 rounded-full bg-primary absolute h-[72px] text-primary font-medium text-xl">
+                  <div className="w-[15vw] flex justify-end items-center pr-[60%] rounded-full bg-primary absolute h-[90%] text-primary font-medium text-lg">
                     Reach Out
                   </div>
                 </div>
 
-                <div className="flex gap-8 pr-40">
-                  <div className="w-[56px] h-[56px] bg-primary rounded-full flex justify-center items-center pointer-events-none">
-                    <img src={instagram} alt="instagramLogo" />
+                <div className="flex gap-8 pr-[10vw]">
+                  <div className="w-[4vw] h-[4vw] bg-primary rounded-full flex justify-center items-center pointer-events-none">
+                    <img
+                      src={instagram}
+                      className="w-5/12"
+                      alt="instagramLogo"
+                    />
                   </div>
-                  <div className="w-[56px] h-[56px] bg-primary rounded-full flex justify-center items-center">
-                    <FaLinkedinIn size={24} className="fill-footer" />
+                  <div className="w-[4vw] h-[4vw] bg-primary rounded-full flex justify-center items-center">
+                    <FaLinkedinIn size="1.5vw" className="fill-footer" />
                   </div>
                 </div>
               </div>
               <div className="flex items-center justify-between">
                 <div>
                   <img
-                    className="w-48 pointer-events-none"
+                    className="w-[12vw] pointer-events-none"
                     src={logoWhite}
                     alt="logoWhite"
                   />
                 </div>
-                <div className="flex pr-12">
-                  <span className="text-secondary font-medium text-sm">
+                <div className="flex pr-[2vw]">
+                  <span className="text-secondary font-medium">
                     © 2023 BWITCODE, All rights reserved{" "}
                   </span>
                 </div>

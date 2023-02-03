@@ -17,6 +17,7 @@ html {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  scroll-behavior: smooth;
 }
 
 @layer components {
@@ -36,11 +37,11 @@ html {
   }
 
   .wrapper {
-    @apply w-10/12 px-24 contain-content py-12;
+    @apply w-10/12 px-[7vw] contain-content py-[3vw];
   }
 
   .icon-box-sidebar {
-    @apply w-16 h-16 bg-primary rounded-full flex items-center justify-center;
+    @apply w-[4vw] h-[4vw] bg-primary rounded-full flex items-center justify-center;
   }
 
   .pointer-events-all {
@@ -60,6 +61,10 @@ html {
 
 .contain-content {
   contain: content;
+}
+
+.prespective-100 {
+  perspective: 100px;
 }
 
 ::-webkit-scrollbar {

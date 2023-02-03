@@ -81,96 +81,47 @@ const Services = () => {
   const technologies = [
     {
       id: 1,
-      icon: (
-        <SiHtml5
-          size={80}
-          className="fill-gray-500 group-hover:fill-orange-600"
-        />
-      ),
+      icon: <SiHtml5 size={80} className="fill-orange-600" />,
     },
     {
       id: 2,
-      icon: (
-        <SiCss3 size={80} className="fill-gray-500 group-hover:fill-blue-500" />
-      ),
+      icon: <SiCss3 size={80} className="fill-blue-500" />,
     },
     {
       id: 3,
-      icon: (
-        <SiTailwindcss
-          size={80}
-          className="fill-gray-500 group-hover:fill-sky-500"
-        />
-      ),
+      icon: <SiTailwindcss size={80} className="fill-sky-500" />,
     },
     {
       id: 4,
-      icon: (
-        <SiBootstrap
-          size={80}
-          className="fill-gray-500 group-hover:fill-indigo-600"
-        />
-      ),
+      icon: <SiBootstrap size={80} className="fill-indigo-600" />,
     },
     {
       id: 5,
-      icon: (
-        <SiJavascript
-          size={80}
-          className="fill-gray-500 group-hover:fill-amber-300"
-        />
-      ),
+      icon: <SiJavascript size={80} className="fill-amber-300" />,
     },
     {
       id: 6,
-      icon: (
-        <SiTypescript
-          size={80}
-          className="fill-gray-500 group-hover:fill-blue-800"
-        />
-      ),
+      icon: <SiTypescript size={80} className="fill-blue-800" />,
     },
     {
       id: 7,
-      icon: (
-        <SiReact size={80} className="fill-gray-500 group-hover:fill-sky-400" />
-      ),
+      icon: <SiReact size={80} className="fill-sky-400" />,
     },
     {
       id: 8,
-      icon: (
-        <SiNextdotjs
-          size={80}
-          className="fill-gray-500 group-hover:fill-gray-900"
-        />
-      ),
+      icon: <SiNextdotjs size={80} className="fill-gray-900" />,
     },
     {
       id: 9,
-      icon: (
-        <SiDotnet
-          size={80}
-          className="fill-gray-500 group-hover:fill-sky-500"
-        />
-      ),
+      icon: <SiDotnet size={80} className="fill-sky-500" />,
     },
     {
       id: 10,
-      icon: (
-        <SiRedux
-          size={80}
-          className="fill-gray-500 group-hover:fill-fuchsia-700"
-        />
-      ),
+      icon: <SiRedux size={80} className="fill-fuchsia-700" />,
     },
     {
       id: 11,
-      icon: (
-        <SiReactrouter
-          size={80}
-          className="fill-gray-500 group-hover:fill-gray-800"
-        />
-      ),
+      icon: <SiReactrouter size={80} className="fill-gray-800" />,
     },
   ];
 
@@ -186,34 +137,65 @@ const Services = () => {
     const length = process.length - 1;
     setCurrent((perv) => (perv === 0 ? (perv = length) : perv - 1));
   };
+
+  const variants = {
+    titleVisible: {
+      y: 0,
+      transition: { duration: 0.8, ease: "easeInOut" },
+    },
+    titleHidden: {
+      y: "100%",
+    },
+  };
+
   return (
     <div>
       <Layout page={"services"}>
         <motion.div
           className="pt-44 overflow-hidden"
           style={{ translateY: scrollYProgress }}
-          exit={{ display: "none" }}
         >
           <header className="relative wrapper mx-auto py-12">
             <div className="flex gap-20">
-              <h1 className="leading-normal text-9xl font-playfairDisplay  text-right max-w-xl pl-20">
-                <span>Our</span> <br />
-                <span>Services</span>
+              <h1 className="text-9xl font-playfairDisplay  text-right max-w-xl pl-20">
+                <span className="block contain-content pb-4">
+                  <motion.span
+                    className="block"
+                    variants={variants}
+                    initial="titleHidden"
+                    animate="titleVisible"
+                    exit="titleHidden"
+                  >
+                    Our
+                  </motion.span>
+                </span>
+                <span className="block contain-content pb-4 prespective-100">
+                  <motion.span
+                    className="block"
+                    variants={variants}
+                    initial="titleHidden"
+                    animate="titleVisible"
+                    exit="titleHidden"
+                  >
+                    Services
+                  </motion.span>
+                </span>
+                <span className="absolute top-16 left-80">
+                  <svg
+                    width="48"
+                    height="47"
+                    viewBox="0 0 48 47"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M29.52 33.9C29.52 42.48 27.21 46.77 22.59 46.77C19.73 46.77 16.4667 44.9733 12.8 41.38C16.2467 37.7867 18.8133 33.6067 20.5 28.84C15.66 31.1133 11.5167 32.25 8.07 32.25C3.15667 32.25 0.7 29.9033 0.7 25.21C0.7 22.79 1.50667 20.0767 3.12 17.07C8.25333 19.3433 13.0933 20.48 17.64 20.48C12.5067 14.76 9.94 10.0667 9.94 6.4C9.94 2.22 13.0567 0.129994 19.29 0.129994C20.6833 0.129994 22.04 0.239995 23.36 0.459996C23.0667 2.73333 22.92 4.97 22.92 7.17C22.92 9.37 23.5433 12.0833 24.79 15.31C29.41 7.39 33.6633 3.43 37.55 3.43C38.87 3.43 40.3367 4.49333 41.95 6.62C43.6367 8.67333 44.81 11.3867 45.47 14.76C39.8967 15.7867 35.2767 17.6567 31.61 20.37C41.95 23.0833 47.12 26.3467 47.12 30.16C47.12 31.5533 46.4967 33.0933 45.25 34.78C44.0767 36.4667 42.3533 37.9333 40.08 39.18C34.2133 33.1667 30.62 29.6467 29.3 28.62C29.4467 29.80 29.52 31.48 29.52 33.9Z"
+                      fill="#0EBDB8"
+                    />
+                  </svg>
+                </span>
               </h1>
-              <span className="absolute top-16 left-80">
-                <svg
-                  width="48"
-                  height="47"
-                  viewBox="0 0 48 47"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M29.52 33.9C29.52 42.48 27.21 46.77 22.59 46.77C19.73 46.77 16.4667 44.9733 12.8 41.38C16.2467 37.7867 18.8133 33.6067 20.5 28.84C15.66 31.1133 11.5167 32.25 8.07 32.25C3.15667 32.25 0.7 29.9033 0.7 25.21C0.7 22.79 1.50667 20.0767 3.12 17.07C8.25333 19.3433 13.0933 20.48 17.64 20.48C12.5067 14.76 9.94 10.0667 9.94 6.4C9.94 2.22 13.0567 0.129994 19.29 0.129994C20.6833 0.129994 22.04 0.239995 23.36 0.459996C23.0667 2.73333 22.92 4.97 22.92 7.17C22.92 9.37 23.5433 12.0833 24.79 15.31C29.41 7.39 33.6633 3.43 37.55 3.43C38.87 3.43 40.3367 4.49333 41.95 6.62C43.6367 8.67333 44.81 11.3867 45.47 14.76C39.8967 15.7867 35.2767 17.6567 31.61 20.37C41.95 23.0833 47.12 26.3467 47.12 30.16C47.12 31.5533 46.4967 33.0933 45.25 34.78C44.0767 36.4667 42.3533 37.9333 40.08 39.18C34.2133 33.1667 30.62 29.6467 29.3 28.62C29.4467 29.80 29.52 31.48 29.52 33.9Z"
-                    fill="#0EBDB8"
-                  />
-                </svg>
-              </span>
+
               <div className="flex items-end">
                 <p className="flex pb-12 mx-auto mt-2">
                   We try to perform every service as qualitatively as possible
@@ -246,7 +228,7 @@ const Services = () => {
             <h2 className="text-xl font-semibold uppercase">Process</h2>
             <div className="pt-12 flex justify-between ">
               <div className="max-w-[220px] flex flex-col justify-between items-center">
-                <div className="space-y-8 pt-12">
+                <motion.div className="space-y-8 pt-12">
                   <h3 className="font-playfairDisplay text-4xl">
                     {process[current].title}
                   </h3>
@@ -254,7 +236,7 @@ const Services = () => {
                   <div className="font-semibold text-9xl absolute right-24 top-4 text-white/40">
                     0{process[current].id}
                   </div>
-                </div>
+                </motion.div>
 
                 <div className="flex -ml-10 gap-12">
                   <div
@@ -292,7 +274,7 @@ const Services = () => {
                 {technologies.map(({ id, icon }) => (
                   <div
                     key={id}
-                    className="rounded-full flex justify-center items-center  transition-all group"
+                    className="rounded-xl hover:-translate-y-4 hover:scale-110 py-6 flex justify-center items-center shadow-md px-24 bg-white transition-all group"
                   >
                     {icon}
                   </div>
@@ -323,8 +305,11 @@ const Services = () => {
                       <li>
                         <Link to="/">About</Link>
                       </li>
-                      <li>
-                        <Link to="#">Services</Link>
+                      <li
+                        className="cursor-pointer"
+                        onClick={() => window.scrollTo(0, 0)}
+                      >
+                        Services
                       </li>
                       <li>Works</li>
                     </ul>
