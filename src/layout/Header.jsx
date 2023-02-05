@@ -235,7 +235,7 @@ const Header = ({ className }) => {
           exit="hidden"
           className="w-11/12 h-full"
         >
-          <Link to="/about" className="flex items-center h-full bg-about">
+          <Link to="/" className="flex items-center h-full bg-about">
             <motion.div
               variants={text}
               initial="hidden"
