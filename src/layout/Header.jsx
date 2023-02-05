@@ -124,8 +124,7 @@ const Header = ({ className }) => {
 
         {/* Desktop Menu */}
         <Link
-          to="malito:bwitcode@gmail.com"
-          target="_blank"
+          to="/contact"
           className="bg-services hidden lg:flex text-p px-8 py-2.5 rounded-full  justify-center items-center font-medium gap-4 hover:bg-hover pointer-events-auto"
         >
           <span>Contact</span>

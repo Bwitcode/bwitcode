@@ -303,7 +303,7 @@ const Services = () => {
                 {technologies.map(({ id, icon }) => (
                   <div
                     key={id}
-                    className="flex items-center justify-center py-8 transition-all bg-white rounded-tl-3xl rounded-br-3xl md:rounded-3xl md:group"
+                    className="flex items-center justify-center py-8 transition-all bg-white rounded-tl-3xl rounded-br-3xl md:rounded-3xl group"
                   >
                     {icon}
                   </div>
@@ -450,7 +450,7 @@ const Services = () => {
 
               <div className="flex pt-12 sm:justify-center">
                 <span className="text-xs font-medium sm:text-sm text-secondary">
-                  © 2023 BWITCODE, All rights reserved{" "}
+                  © 2023 BWITCODE, All rights reserved
                 </span>
               </div>
             </div>
