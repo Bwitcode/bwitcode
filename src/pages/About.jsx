@@ -1,8 +1,9 @@
 import React from "react";
 import Layout from "../layout";
 import { motion } from "framer-motion";
-import { HiArrowLongDown } from "react-icons/hi2";
+import { HiArrowLongDown, HiArrowLongUp } from "react-icons/hi2";
 import aboutUsFrame from "../assets/images/about-us-frame.png";
+import miniLogo from "../assets/images/mini-logo.png";
 import userChecked from "../assets/icons/userChecked.svg";
 import statics from "../assets/icons/statics.svg";
 import eye from "../assets/icons/eye.svg";
@@ -52,6 +53,7 @@ const About = () => {
       transition: { duration: 1, ease: "easeInOut" },
     },
     titleHidden: {
+      transition: { duration: 1, ease: "easeOut" },
       y: "100%",
     },
   };
@@ -59,12 +61,12 @@ const About = () => {
   return (
     <div>
       <Layout page={"about"}>
-        <motion.div className="pt-44 overflow-hidden">
-          <header className="wrapper">
-            <div className="space-y-12">
-              <div>
-                <h1 className="text-[8vw] font-playfairDisplay">
-                  <span className="block contain-content pb-4">
+        <motion.div className="pt-32 overflow-hidden">
+          <header className="wrapper ">
+            <div className="space-y-20">
+              <div className="relative">
+                <h1 className="text-6xl sm:text-8xl md:text-9xl font-playfairDisplay">
+                  <span className="block pb-4 contain-content">
                     <motion.span
                       className="block"
                       variants={variants}
@@ -75,9 +77,9 @@ const About = () => {
                       Make
                     </motion.span>
                   </span>
-                  <span className="block contain-content pb-4 prespective-100">
+                  <span className="block pb-4 contain-content prespective-100">
                     <motion.span
-                      className="block"
+                      className="hidden lg:block"
                       variants={variants}
                       initial="titleHidden"
                       animate="titleVisible"
@@ -85,11 +87,31 @@ const About = () => {
                     >
                       Everthing Easier
                     </motion.span>
+                    <motion.span
+                      className="block lg:hidden"
+                      variants={variants}
+                      initial="titleHidden"
+                      animate="titleVisible"
+                      exit="titleHidden"
+                    >
+                      Everthing
+                    </motion.span>
+                  </span>
+                  <span className="block pb-4 lg:hidden contain-content prespective-100">
+                    <motion.span
+                      className="block lg:hidden"
+                      variants={variants}
+                      initial="titleHidden"
+                      animate="titleVisible"
+                      exit="titleHidden"
+                    >
+                      Easier
+                    </motion.span>
                   </span>
                 </h1>
-                <span className="absolute top-[15%] left-[35%]">
+                <span className="absolute top-12 left-72 sm:left-96">
                   <svg
-                    width="3vw"
+                    className="w-8 sm:w-12"
                     viewBox="0 0 48 47"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -100,30 +122,30 @@ const About = () => {
                     />
                   </svg>
                 </span>
-                <p className="flex max-w-[40%] pr-20 mx-auto mt-2">
+                <p className="flex max-w-md pr-20 mx-auto mt-4 text-xs sm:mt-8 sm:text-sm md:text-base">
                   We will prepare your tech stack and software delivery process
                   for a bright future.
                 </p>
               </div>
-              <div className="relative flex items-center justify-center max-w-fit cursor-pointer">
-                <div className="w-12 h-12 rounded-full bg-services"></div>
-                <HiArrowLongDown size={48} className="absolute top-7" />
+              <div className="relative flex items-center justify-center cursor-pointer max-md:hidden max-w-fit">
+                <div className="w-10 h-10 rounded-full sm:w-12 sm:h-12 bg-services"></div>
+                <HiArrowLongDown className="absolute text-4xl sm:text-5xl top-7" />
               </div>
             </div>
           </header>
 
           <section className="relative py-12 wrapper bg-footer text-p">
             <div>
-              <h2 className="text-[1.2vw] font-semibold uppercase">About us</h2>
+              <h2 className="text-sm font-semibold uppercase">About us</h2>
               <div className="space-y-16">
                 <div>
                   <img
                     src={aboutUsFrame}
-                    className=" w-full relative pointer-events-none -left-16"
+                    className="relative w-full pointer-events-none -left-8 sm:-left-10 lg:-left-16"
                     alt="person-with-pen"
                   />
                 </div>
-                <div className="grid grid-cols-2 gap-20">
+                <div className="grid gap-8 text-xs sm:gap-20 sm:grid-cols-2 sm:text-sm md:text-base">
                   <p>
                     We all know that setting up a business or branding it can be
                     costly. One of the first things that you need to have is a
@@ -143,12 +165,12 @@ const About = () => {
 
           <section className="wrapper">
             <div className="space-y-16">
-              <h2 className="capitalize font-semibold text-2xl text-center">
+              <h2 className="text-lg font-semibold text-center capitalize sm:text-xl md:text-2xl">
                 The team will turn your ideas into reality
               </h2>
 
-              <div className="flex gap-24">
-                <div className="max-w-[25%] space-y-12 text-center">
+              <div className="flex flex-col-reverse items-center gap-16 lg:gap-10 xl:gap-24 md:flex-row">
+                <div className="px-8 space-y-12 text-xs text-center sm:text-sm lg:text-base md:px-0 sm:max-w-lg md:max-w-xs">
                   <p>
                     Bwitcode is a leading Development & Design expert company
                     providing superior Software, Web, Mobile and Creative
@@ -161,7 +183,7 @@ const About = () => {
                     Technology make up our team.
                   </p>
                 </div>
-                <div className="h-[30vw] bg-footer w-full rounded-xl rounded-bl-[600px]">
+                <div className="h-64 sm:h-80 lg:h-80 xl:h-96 bg-footer sm:w-8/12 w-10/12 rounded-xl rounded-bl-[600px]">
                   {/* Video */}
                 </div>
               </div>
@@ -170,22 +192,26 @@ const About = () => {
 
           <section className="bg-alternative wrapper">
             <div className="space-y-16">
-              <h2 className="font-medium text-[54px]">
-                Principles <br />{" "}
+              <h2 className="text-4xl font-medium text lg:text-5xl">
+                Principles <br />
                 <span className="text-services">which guide us</span>
               </h2>
-              <ul>
+              <ul className="hidden lg:block">
                 {principles.map(({ id, left, right, icon }) => {
                   return (
                     <li key={id}>
-                      <div className="flex items-center justify-between">
-                        <p className="max-w-[30%] text-lg font-gotu">{left}</p>{" "}
+                      <div className="flex items-center justify-between gap-8">
+                        <p className="max-w-xs xl:text-2xl lg:text-xl font-gotu">
+                          {left}
+                        </p>{" "}
                         <img
-                          className="pointer-events-none w-[8vw]"
+                          className="pointer-events-none "
                           src={icon}
                           alt={id + "list"}
                         />
-                        <p className="max-w-[30%]">{right}</p>
+                        <p className="max-w-xs lg:text-sm xl:text-base">
+                          {right}
+                        </p>
                       </div>
                       {id !== 4 && (
                         <div className="h-0.5 w-11/12 mx-auto my-10 bg-line rounded-sm"></div>
@@ -194,42 +220,87 @@ const About = () => {
                   );
                 })}
               </ul>
+              <ul className="grid grid-cols-2 gap-8 lg:hidden">
+                {principles.map(({ id, left, icon }) => {
+                  return (
+                    <li key={id}>
+                      <div className="flex flex-col gap-2">
+                        <div className="flex items-center justify-center w-32 h-32 bg-white md:w-64 md:h-64 sm:w-40 sm:h-40 rounded-tr-3xl rounded-bl-3xl">
+                          <img
+                            className="w-24 pointer-events-none sm:w-32 md:w-44"
+                            src={icon}
+                            alt={id + "list"}
+                          />
+                        </div>
+                        <p className="w-32 text-xs text-center md:w-64 sm:w-44 sm:text-sm md:text-lg font-gotu">
+                          {left}
+                        </p>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </section>
 
-          <section className="wrapper bg-alternative mt-12">
-            <div className="flex items-center justify-between">
-              <img className="w-[12vw]" src={footerFrame} alt="" />
+          <section className="hidden mt-12 lg:block wrapper bg-alternative">
+            <div className="flex items-center justify-between gap-4">
+              <img src={footerFrame} alt="" />
 
-              <div className="text-center">
-                <h3 className="text-2xl font-gotu">Learn about our services</h3>
-                <p className="max-w-[60%] mx-auto">
+              <div className="max-w-md text-center">
+                <h3 className="text-4xl font-gotu">Learn about our services</h3>
+                <p className="mt-4">
                   A selection of in house projects, client projects and upcoming
                   projects in our area's of practice.
                 </p>
               </div>
               <Link to="/services">
-                <img className="w-[10vw]" src={footerArrow} alt="" />
+                <img src={footerArrow} alt="" />
               </Link>
             </div>
           </section>
 
-          <footer className="wrapper bg-footer text-p">
+          <section className="relative block mt-12 lg:hidden bg-alternative">
+            <div className="wrapper">
+              <div className="flex justify-between gap-4">
+                <h3 className="w-40 text-2xl sm:text-4xl md:text-5xl sm:w-72 md:w-72 font-gotu">
+                  Learn about our services
+                </h3>
+                <Link
+                  to="/services"
+                  className="flex items-center justify-center w-12 h-12 rotate-45 rounded-full bg-services md:w-24 md:h-24 sm:w-16 sm:h-16 text-p"
+                >
+                  <HiArrowLongUp className="text-2xl md:text-5xl sm:text-4xl" />
+                </Link>
+              </div>
+              <p className="mt-4 text-xs w-60 sm:w-72 md:text-base sm:text-sm">
+                A selection of in house projects, client projects and upcoming
+                projects in our area's of practice.
+              </p>
+            </div>
+            <img
+              className="absolute right-0 pointer-events-none w-72 sm:w-96 sm:top-16 top-24"
+              src={miniLogo}
+              alt=""
+            />
+          </section>
+
+          <footer className="hidden lg:block wrapper bg-footer text-p">
             <div className="flex flex-col space-y-16">
               <div className="flex items-center justify-between">
-                <h2 className=" leading-normal font-playfairDisplay text-[3.5vw] max-w-[40%]">
+                <h2 className="max-w-sm text-5xl leading-normal font-playfairDisplay">
                   What our help with something?
                 </h2>
-                <div className="font-bold flex pt-4 gap-20">
+                <div className="flex gap-20 pt-4 font-bold">
                   <div className="space-y-4">
-                    <span className="text-secondary text-sm">Contact</span>
+                    <span className="text-sm text-secondary">Contact</span>
                     <ul>
                       <li>+994 99 344 54 34</li>
                       <li>bwitcode@gmail.com</li>
                     </ul>
                   </div>
                   <div className="space-y-4">
-                    <span className="text-secondary font-bold text-sm">
+                    <span className="text-sm font-bold text-secondary">
                       Pages
                     </span>
                     <ul>
@@ -247,45 +318,108 @@ const About = () => {
                   <Link
                     to="malito:bwitcode@gmail.com"
                     target="_blank"
-                    className="w-[4vw] h-[4vw] bg-alternative flex justify-center relative z-10 items-center rounded-full "
+                    className="relative z-10 flex items-center justify-center w-20 h-20 rounded-full bg-alternative "
                   >
                     <img
                       src={letter}
-                      className="pointer-events-none w-6/12"
+                      className="pointer-events-none"
                       alt="letter"
                     />
                   </Link>
-                  <div className="w-[15vw] flex justify-end items-center pr-[60%] rounded-full bg-primary absolute h-[90%] text-primary font-medium text-lg">
+                  <div className="w-64 flex justify-end items-center pr-12 rounded-full bg-primary absolute h-[72px] text-primary font-medium text-xl">
                     Reach Out
                   </div>
                 </div>
 
-                <div className="flex gap-8 pr-[10vw]">
-                  <div className="w-[4vw] h-[4vw] bg-primary rounded-full flex justify-center items-center pointer-events-none">
-                    <img
-                      src={instagram}
-                      className="w-5/12"
-                      alt="instagramLogo"
-                    />
+                <div className="flex gap-8 pr-40">
+                  <div className="w-[56px] h-[56px] bg-primary rounded-full flex justify-center items-center pointer-events-none">
+                    <img src={instagram} alt="instagramLogo" />
                   </div>
-                  <div className="w-[4vw] h-[4vw] bg-primary rounded-full flex justify-center items-center">
-                    <FaLinkedinIn size="1.5vw" className="fill-footer" />
+                  <div className="w-[56px] h-[56px] bg-primary rounded-full flex justify-center items-center">
+                    <FaLinkedinIn size={24} className="fill-footer" />
                   </div>
                 </div>
               </div>
               <div className="flex items-center justify-between">
                 <div>
                   <img
-                    className="w-[12vw] pointer-events-none"
+                    className="w-48 pointer-events-none"
                     src={logoWhite}
                     alt="logoWhite"
                   />
                 </div>
-                <div className="flex pr-[2vw]">
-                  <span className="text-secondary font-medium">
+                <div className="flex pr-12">
+                  <span className="text-sm font-medium text-secondary">
                     © 2023 BWITCODE, All rights reserved{" "}
                   </span>
                 </div>
+              </div>
+            </div>
+          </footer>
+
+          <footer className="block lg:hidden bg-footer text-p">
+            <div className="flex flex-col gap-4 rounded-br-full sm:flex-row bg-works wrapper outline outline-line">
+              <h2 className="text-3xl leading-normal sm:max-w-sm md:text-5xl sm:text-4xl font-playfairDisplay">
+                What our help with something?
+              </h2>
+              <div className="flex cursor-pointer ">
+                <div className="relative flex items-center ">
+                  <Link
+                    to="malito:bwitcode@gmail.com"
+                    target="_blank"
+                    className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full md:w-20 md:h-20 bg-alternative "
+                  >
+                    <img
+                      src={letter}
+                      className="w-8 pointer-events-none md:w-10"
+                      alt="letter"
+                    />
+                  </Link>
+                  <div className="absolute flex items-center justify-end w-48 pr-8 text-base font-medium rounded-full md:w-60 md:h-16 h-14 bg-primary text-primary sm:text-lg md:text-xl">
+                    Reach Out
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="wrapper">
+              <div className="sm:flex sm:justify-between">
+                <div>
+                  <img
+                    className="w-48 pointer-events-none"
+                    src={logoWhite}
+                    alt="logoWhite"
+                  />
+                </div>
+
+                <div className="flex gap-12 pt-12 font-bold sm:gap-16 lg:gap-20 sm:pt-0">
+                  <div className="space-y-4">
+                    <span className="text-xs sm:text-sm text-secondary">
+                      Contact
+                    </span>
+                    <ul className="text-sm sm:text-base">
+                      <li>+994 99 344 54 34</li>
+                      <li>bwitcode@gmail.com</li>
+                    </ul>
+                  </div>
+                  <div className="space-y-4">
+                    <span className="text-xs font-bold sm:text-sm text-secondary">
+                      Pages
+                    </span>
+                    <ul className="text-sm sm:text-base">
+                      <li>About</li>
+                      <li>
+                        <Link to="/services">Services</Link>
+                      </li>
+                      <li>Works</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex pt-12 sm:justify-center">
+                <span className="text-xs font-medium sm:text-sm text-secondary">
+                  © 2023 BWITCODE, All rights reserved{" "}
+                </span>
               </div>
             </div>
           </footer>
