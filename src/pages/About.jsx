@@ -304,9 +304,14 @@ const About = () => {
                       Pages
                     </span>
                     <ul>
-                      <li>About</li>
                       <li>
-                        <Link to="/services">Services</Link>
+                        <Link to="/">About</Link>
+                      </li>
+                      <li
+                        className="cursor-pointer"
+                        onClick={() => window.scrollTo(0, 0)}
+                      >
+                        Services
                       </li>
                       <li>Works</li>
                     </ul>
@@ -316,19 +321,20 @@ const About = () => {
               <div className="flex items-center justify-between ">
                 <div className="relative flex items-center cursor-pointer">
                   <Link
-                    to="malito:bwitcode@gmail.com"
-                    target="_blank"
-                    className="relative z-10 flex items-center justify-center w-20 h-20 rounded-full bg-alternative "
+                    className="relative flex items-center cursor-pointer"
+                    to="/contact"
                   >
-                    <img
-                      src={letter}
-                      className="pointer-events-none"
-                      alt="letter"
-                    />
+                    <div className="relative z-10 flex items-center justify-center w-20 h-20 rounded-full bg-alternative ">
+                      <img
+                        src={letter}
+                        className="pointer-events-none"
+                        alt="letter"
+                      />
+                    </div>
+                    <div className="w-64 flex justify-end items-center pr-12 rounded-full bg-primary absolute h-[72px] text-primary font-medium text-xl">
+                      Reach Out
+                    </div>{" "}
                   </Link>
-                  <div className="w-64 flex justify-end items-center pr-12 rounded-full bg-primary absolute h-[72px] text-primary font-medium text-xl">
-                    Reach Out
-                  </div>
                 </div>
 
                 <div className="flex gap-8 pr-40">
@@ -350,7 +356,7 @@ const About = () => {
                 </div>
                 <div className="flex pr-12">
                   <span className="text-sm font-medium text-secondary">
-                    © 2023 BWITCODE, All rights reserved{" "}
+                    © 2023 BWITCODE, All rights reserved
                   </span>
                 </div>
               </div>
@@ -363,21 +369,19 @@ const About = () => {
                 What our help with something?
               </h2>
               <div className="flex cursor-pointer ">
-                <div className="relative flex items-center ">
-                  <Link
-                    to="malito:bwitcode@gmail.com"
-                    target="_blank"
-                    className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full md:w-20 md:h-20 bg-alternative "
-                  >
-                    <img
-                      src={letter}
-                      className="w-8 pointer-events-none md:w-10"
-                      alt="letter"
-                    />
+                <div>
+                  <Link to="/contact" className="relative flex items-center ">
+                    <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full md:w-20 md:h-20 bg-alternative ">
+                      <img
+                        src={letter}
+                        className="w-8 pointer-events-none md:w-10"
+                        alt="letter"
+                      />
+                    </div>
+                    <div className="absolute flex items-center justify-end w-48 pr-8 text-base font-medium rounded-full md:w-60 md:h-16 h-14 bg-primary text-primary sm:text-lg md:text-xl">
+                      Reach Out
+                    </div>
                   </Link>
-                  <div className="absolute flex items-center justify-end w-48 pr-8 text-base font-medium rounded-full md:w-60 md:h-16 h-14 bg-primary text-primary sm:text-lg md:text-xl">
-                    Reach Out
-                  </div>
                 </div>
               </div>
             </div>
@@ -418,7 +422,7 @@ const About = () => {
 
               <div className="flex pt-12 sm:justify-center">
                 <span className="text-xs font-medium sm:text-sm text-secondary">
-                  © 2023 BWITCODE, All rights reserved{" "}
+                  © 2023 BWITCODE, All rights reserved
                 </span>
               </div>
             </div>
