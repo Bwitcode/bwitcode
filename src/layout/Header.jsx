@@ -162,11 +162,7 @@ const Header = ({ className }) => {
           exit="hidden"
           className="w-8/12 h-full "
         >
-          <Link
-            to="malito:bwitcode@gmail.com"
-            target="_blank"
-            className="flex items-center h-full bg-line"
-          >
+          <Link to="/contact" className="flex items-center h-full bg-line">
             <motion.div
               variants={text}
               initial="hidden"
