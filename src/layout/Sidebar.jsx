@@ -78,9 +78,9 @@ const Sidebar = ({ variant }) => {
   };
   if (variant === "about") {
     return (
-      <aside className="w-full min-h-screen fixed flex top-0 left-0 justify-end z-10 pointer-events-none font-gotu text-[2.5vw] text-p">
+      <aside className="fixed top-0 left-0 z-10 justify-end hidden w-full min-h-screen text-3xl pointer-events-none lg:flex font-gotu text-p">
         <motion.div
-          className="side-bar z-10"
+          className="z-10 side-bar"
           initial={{ display: "none" }}
           exit={{ display: "flex" }}
         >
@@ -101,7 +101,7 @@ const Sidebar = ({ variant }) => {
               initial="visible"
               exit="servicesToLeft"
             >
-              <motion.div className="h-full py-[25%] flex flex-col items-center justify-between">
+              <motion.div className="flex flex-col items-center justify-between h-full py-8">
                 <motion.div
                   className="icon-box-sidebar"
                   variants={sidebar}
@@ -132,7 +132,7 @@ const Sidebar = ({ variant }) => {
         </motion.div>
         <motion.div className="side-bar">
           <motion.div className="works-sidebar" initial={{ scaleX: 1 }}>
-            <motion.div className="h-full py-[25%] flex flex-col items-center justify-between">
+            <motion.div className="flex flex-col items-center justify-between h-full py-8">
               <motion.div
                 className="icon-box-sidebar"
                 variants={sidebar}
@@ -161,7 +161,7 @@ const Sidebar = ({ variant }) => {
   }
   if (variant === "services") {
     return (
-      <aside className="w-full min-h-screen fixed flex top-0 left-0 z-10 pointer-events-none font-gotu text-4xl text-p">
+      <aside className="fixed top-0 left-0 z-10 hidden w-full min-h-screen text-3xl pointer-events-none lg:flex font-gotu text-p">
         <motion.div className="side-bar">
           <Link to={"/"}>
             <motion.div
@@ -171,7 +171,7 @@ const Sidebar = ({ variant }) => {
               initial="visible"
               exit="aboutToRight"
             >
-              <motion.div className="h-full py-[25%] flex flex-col items-center justify-between">
+              <motion.div className="flex flex-col items-center justify-between h-full py-8">
                 <motion.div
                   variants={sidebar}
                   initial="iconHidden"
@@ -196,7 +196,7 @@ const Sidebar = ({ variant }) => {
             </motion.div>
           </Link>
         </motion.div>
-        <motion.div className="side-bar pointer-events-none">
+        <motion.div className="pointer-events-none side-bar">
           <Link to="/services">
             <motion.div
               layout
@@ -207,7 +207,7 @@ const Sidebar = ({ variant }) => {
             ></motion.div>
           </Link>
         </motion.div>
-        <motion.div className="side-bar ml-auto pointer-events-none">
+        <motion.div className="ml-auto pointer-events-none side-bar">
           <Link to="/services">
             <motion.div
               layout
@@ -221,7 +221,7 @@ const Sidebar = ({ variant }) => {
         </motion.div>
         <motion.div className="side-bar">
           <motion.div className="works-sidebar" initial={{ scaleX: 1 }}>
-            <motion.div className="h-full py-[25%] flex flex-col items-center justify-between">
+            <motion.div className="flex flex-col items-center justify-between h-full py-8">
               <motion.div
                 className="icon-box-sidebar"
                 variants={sidebar}

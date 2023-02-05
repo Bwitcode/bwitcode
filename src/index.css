@@ -37,7 +37,7 @@ html {
   }
 
   .wrapper {
-    @apply w-10/12 px-[7vw] contain-content py-[3vw];
+    @apply px-6 py-12 sm:py-16 md:px-12 lg:mx-0 lg:w-10/12 lg:px-16 xl:px-24 2xl:px-32 contain-content;
   }
 
   .icon-box-sidebar {
