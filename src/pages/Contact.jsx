@@ -6,7 +6,7 @@ import instagram from "../assets/icons/instagram.svg";
 import { FaLinkedinIn } from "react-icons/fa";
 import footerArrow from "../assets/icons/footer-arrow.svg";
 import contactFrame from "../assets/images/contact-frame.png";
-
+import { HiHome } from "react-icons/hi2";
 const Contact = () => {
   return (
     <div>
@@ -15,9 +15,10 @@ const Contact = () => {
           <img className="w-40 md:w-44 lg:w-48" src={logo} alt="BWITCODE" />
           <Link
             to="/"
-            className="bg-services hidden lg:flex text-p px-8 py-2.5 rounded-full justify-center items-center font-medium gap-4 hover:bg-hover pointer-events-auto"
+            className="bg-services text-p p-2 rounded lg:px-8 lg:py-2.5 lg:rounded-full justify-center items-center font-medium gap-4 hover:bg-hover pointer-events-auto"
           >
-            <span>Return back</span>
+            <span className="hidden lg:flex">Return back</span>
+            <HiHome className="lg:hidden text-2xl sm:text-3xl" />
           </Link>
         </div>
       </nav>
@@ -28,7 +29,7 @@ const Contact = () => {
           className="hidden lg:block max-w-[690px]"
           alt="contact-frame"
         />
-        <div className="pt-12 flex flex-col items-end">
+        <div className=" pt-12 flex flex-col items-center lg:items-end">
           <h2 className="font-medium text-4xl">Let's discuss the project</h2>
           <p className="text-lg mt-8">24/7 We will answer your question</p>
           <form className="space-y-8 max-w-md mt-16">

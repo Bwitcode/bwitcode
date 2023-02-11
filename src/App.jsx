@@ -3,7 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Services from "./pages/Services";
 import About from "./pages/About";
-import Contact from "./pages/Contact"
+import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScrollToTop";
 const App = () => {
   const location = useLocation();

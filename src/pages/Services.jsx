@@ -7,7 +7,13 @@ import instagram from "../assets/icons/instagram.svg";
 import logoWhite from "../assets/images/logo-white.png";
 import processFrame from "../assets/images/process-frame.png";
 import { FaLinkedinIn } from "react-icons/fa";
-import { HiArrowLongDown } from "react-icons/hi2";
+import {
+  HiArrowLongDown,
+  HiMagnifyingGlass,
+  HiOutlineCog8Tooth,
+  HiOutlineComputerDesktop,
+} from "react-icons/hi2";
+import { HiOutlineTemplate } from "react-icons/hi";
 import {
   SiHtml5,
   SiCss3,
@@ -26,18 +32,22 @@ const Services = () => {
     {
       id: 1,
       name: "Web design and development",
+      icon: <HiOutlineTemplate />,
     },
     {
       id: 2,
       name: "Web hosting and maintenance",
+      icon: <HiOutlineCog8Tooth />,
     },
     {
       id: 3,
       name: "Search engine optimization (SEO)",
+      icon: <HiOutlineComputerDesktop />,
     },
     {
       id: 4,
       name: "Custom software development",
+      icon: <HiMagnifyingGlass />,
     },
     {
       id: 5,
@@ -239,10 +249,27 @@ const Services = () => {
               <h3 className="font-gotu text-2xl sm:text-3xl md:text-4xl lg:text-[40px] text-center">
                 We provide the following services
               </h3>
-              <div className="flex flex-wrap justify-center gap-8 mt-10 text-xs md:text-base sm:text-sm md:gap-12">
+              <div className="hidden lg:flex flex-wrap justify-center gap-8 mt-10 text-xs md:text-base sm:text-sm md:gap-12">
                 {services.map(({ id, name }) => (
                   <div className="px-8 py-4 rounded-full bg-card" key={id}>
                     {name}
+                  </div>
+                ))}
+              </div>
+              <div className="grid lg:hidden justify-items-center gap-8 mt-10 text-xs md:text-base sm:text-sm md:gap-12  mx-auto">
+                {services.map(({ id, name, icon }) => (
+                  <div
+                    key={id}
+                    className="flex w-full justify-between odd:flex-row-reverse gap-4"
+                  >
+                    {icon && (
+                      <div className="px-4 py-3 text-lg sm:text-xl md:text-2xl flex justify-center items-center rounded-full bg-card">
+                        {icon}
+                      </div>
+                    )}
+                    <div className="text-center w-full py-4 rounded-full bg-card">
+                      {name}
+                    </div>
                   </div>
                 ))}
               </div>

@@ -194,7 +194,7 @@ const Header = ({ className }) => {
             <div className="flex items-center justify-center w-12 h-12 rounded-full sm:h-16 sm:w-16 bg-primary">
               <img className="w-6 sm:w-8" src={workIcon} alt="work-icon" />
             </div>
-            <p className="text-2xl sm:text-4xl font-gotu">Works</p>
+            <p className="text-2xl sm:text-4xl font-gotu">Works - Soon</p>
           </motion.div>
         </motion.li>
         <motion.li

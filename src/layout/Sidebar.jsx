@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import servicesIcon from "../assets/icons/services.svg";
@@ -7,6 +7,7 @@ import aboutIcon from "../assets/icons/prisma.svg";
 import DisableClickSpamLink from "../components/DisableClickSpamLink";
 const Sidebar = ({ variant }) => {
   const [isRight, setRight] = useState(false);
+  const [isClicked, setClicked] = useState(false);
   const sidebar = {
     wordVisible: {
       scale: 1,
@@ -76,6 +77,14 @@ const Sidebar = ({ variant }) => {
       },
     },
   };
+
+  const handleLinkClick = () => {
+    setClicked(true);
+    setTimeout(() => {
+      setClicked(false);
+    }, [2000]);
+  };
+
   if (variant === "about") {
     return (
       <aside className="fixed top-0 left-0 z-10 justify-end hidden w-full min-h-screen text-3xl pointer-events-none lg:flex font-gotu text-p">
@@ -93,7 +102,11 @@ const Sidebar = ({ variant }) => {
           ></motion.div>
         </motion.div>
         <motion.div className="side-bar">
-          <Link to="/services">
+          <Link
+            onClick={handleLinkClick}
+            className={isClicked && "pointer-events-none"}
+            to="/services"
+          >
             <motion.div
               layout
               className="services-sidebar"
@@ -150,7 +163,7 @@ const Sidebar = ({ variant }) => {
                   exit="wordHidden"
                   className="writing-mode-vertical"
                 >
-                  Wroks - soon
+                  Works - soon
                 </motion.p>
               </div>
             </motion.div>
@@ -163,7 +176,11 @@ const Sidebar = ({ variant }) => {
     return (
       <aside className="fixed top-0 left-0 z-10 hidden w-full min-h-screen text-3xl pointer-events-none lg:flex font-gotu text-p">
         <motion.div className="side-bar">
-          <Link to={"/"}>
+          <Link
+            onClick={handleLinkClick}
+            className={isClicked && "pointer-events-none"}
+            to={"/"}
+          >
             <motion.div
               layout
               className="about-sidebar"
@@ -197,7 +214,11 @@ const Sidebar = ({ variant }) => {
           </Link>
         </motion.div>
         <motion.div className="pointer-events-none side-bar">
-          <Link to="/services">
+          <Link
+            onClick={handleLinkClick}
+            className={isClicked && "pointer-events-none"}
+            to="/services"
+          >
             <motion.div
               layout
               className="services-sidebar"
@@ -208,7 +229,11 @@ const Sidebar = ({ variant }) => {
           </Link>
         </motion.div>
         <motion.div className="ml-auto pointer-events-none side-bar">
-          <Link to="/services">
+          <Link
+            onClick={handleLinkClick}
+            className={isClicked && "pointer-events-none"}
+            to="/services"
+          >
             <motion.div
               layout
               className="services-sidebar"
@@ -239,7 +264,7 @@ const Sidebar = ({ variant }) => {
                   exit="wordHidden"
                   className="writing-mode-vertical"
                 >
-                  Wroks - soon
+                  Works - soon
                 </motion.p>
               </div>
             </motion.div>
