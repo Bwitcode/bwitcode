@@ -15,6 +15,7 @@ import instagram from "../assets/icons/instagram.svg";
 import logoWhite from "../assets/images/logo-white.png";
 import { FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import video from "../assets/images/video.mp4"
 const About = () => {
   const principles = [
     {
@@ -138,12 +139,20 @@ const About = () => {
             <div>
               <h2 className="text-sm font-semibold uppercase">About us</h2>
               <div className="space-y-16">
-                <div>
+                <div className="flex">
                   <img
                     src={aboutUsFrame}
-                    className="relative w-full pointer-events-none -left-8 sm:-left-10 lg:-left-16"
+                    className="relative w-8/12 pointer-events-none -left-8 sm:-left-10 lg:-left-16"
                     alt="person-with-pen"
                   />
+                  <div className="text-3xs flex flex-col justify-center items-center gap-3">
+                    {/* <p className="hover:scale-110 cursor-pointer transition-all">Best Price</p>
+                    <p className="hover:scale-110 cursor-pointer transition-all">Well designed</p>
+                    <p className="hover:scale-110 cursor-pointer transition-all">SEO optimazed</p>
+                    <p className="hover:scale-110 cursor-pointer transition-all">User-friendly</p> */}
+                    <p>Our vision is to explore every dimension of the digital world, gain knowledge and use it to help businesses achieve creative and long-term success quickly. Our research and development team is constantly working on how we can improve such web design and development solutions to grow with time.</p>
+                    <p>We work to digitally transform businesses to harness the power of the digital space. Our focus is to provide quality solutions for every business that chooses us. We believe in providing affordable IT and software development solutions with hundred percent transparency, commitment and mutual trust.</p>
+                  </div>
                 </div>
                 <div className="grid gap-8 text-xs sm:gap-20 sm:grid-cols-2 sm:text-sm md:text-base">
                   <p>
@@ -183,9 +192,10 @@ const About = () => {
                     Technology make up our team.
                   </p>
                 </div>
-                <div className="h-64 sm:h-80 lg:h-80 xl:h-96 bg-footer sm:w-8/12 w-10/12 rounded-xl rounded-bl-[600px]">
+                <video src={video} autoPlay="autoplay" loop="loop" muted className="h-64 sm:h-80 lg:h-80 xl:h-96 bg-footer sm:w-8/12 w-10/12 rounded-xl rounded-bl-[600px]">
+                  
                   {/* Video */}
-                </div>
+                </video>
               </div>
             </div>
           </section>
