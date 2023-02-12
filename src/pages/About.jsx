@@ -15,7 +15,7 @@ import instagram from "../assets/icons/instagram.svg";
 import logoWhite from "../assets/images/logo-white.png";
 import { FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import video from "../assets/images/video.mp4"
+import video from "../assets/images/video.mp4";
 const About = () => {
   const principles = [
     {
@@ -138,20 +138,30 @@ const About = () => {
           <section className="relative py-12 wrapper bg-footer text-p">
             <div>
               <h2 className="text-sm font-semibold uppercase">About us</h2>
-              <div className="space-y-16">
-                <div className="flex">
+              <div className="space-y-8 lg:space-y-16">
+                <div className="flex flex-col lg:flex-row gap-10">
                   <img
                     src={aboutUsFrame}
-                    className="relative w-8/12 pointer-events-none -left-8 sm:-left-10 lg:-left-16"
+                    className="relative my-auto mx-auto hidden h-5/6 lg:block w-7/12 pointer-events-none -left-8 sm:-left-10 lg:-left-12"
                     alt="person-with-pen"
                   />
-                  <div className="text-3xs flex flex-col justify-center items-center gap-3">
-                    {/* <p className="hover:scale-110 cursor-pointer transition-all">Best Price</p>
-                    <p className="hover:scale-110 cursor-pointer transition-all">Well designed</p>
-                    <p className="hover:scale-110 cursor-pointer transition-all">SEO optimazed</p>
-                    <p className="hover:scale-110 cursor-pointer transition-all">User-friendly</p> */}
-                    <p>Our vision is to explore every dimension of the digital world, gain knowledge and use it to help businesses achieve creative and long-term success quickly. Our research and development team is constantly working on how we can improve such web design and development solutions to grow with time.</p>
-                    <p>We work to digitally transform businesses to harness the power of the digital space. Our focus is to provide quality solutions for every business that chooses us. We believe in providing affordable IT and software development solutions with hundred percent transparency, commitment and mutual trust.</p>
+                  <div className="text-3xs pt-10 lg:pt-20 flex flex-col gap-8 text-xs sm:gap-12 sm:text-sm md:text-base">
+                    <h3 className="text-4xl font-playfairDisplay">
+                      Who We Are
+                    </h3>
+
+                    <div className="flex flex-col sm:max-lg:flex-row  gap-8 sm:gap-20">
+                      <p>
+                        Our vision is to explore every dimension of the digital
+                        world, gain knowledge and use it to help businesses
+                        achieve creative and long-term success quickly.
+                      </p>
+                      <p>
+                        We work to digitally transform businesses to harness the
+                        power of the digital space. Our focus is to provide
+                        quality solutions for every business that chooses us.
+                      </p>
+                    </div>
                   </div>
                 </div>
                 <div className="grid gap-8 text-xs sm:gap-20 sm:grid-cols-2 sm:text-sm md:text-base">
@@ -173,7 +183,7 @@ const About = () => {
           </section>
 
           <section className="wrapper">
-            <div className="space-y-16">
+            <div className="space-y-8 lg:space-y-16">
               <h2 className="text-lg font-semibold text-center capitalize sm:text-xl md:text-2xl">
                 The team will turn your ideas into reality
               </h2>
@@ -192,10 +202,13 @@ const About = () => {
                     Technology make up our team.
                   </p>
                 </div>
-                <video src={video} autoPlay="autoplay" loop="loop" muted className="h-64 sm:h-80 lg:h-80 xl:h-96 bg-footer sm:w-8/12 w-10/12 rounded-xl rounded-bl-[600px]">
-                  
-                  {/* Video */}
-                </video>
+                <video
+                  src={video}
+                  autoPlay="autoplay"
+                  loop="loop"
+                  muted
+                  className="sm:w-8/12 w-10/12 rounded-xl rounded-bl-[600px]"
+                ></video>
               </div>
             </div>
           </section>
@@ -411,8 +424,8 @@ const About = () => {
                       Contact
                     </span>
                     <ul className="text-sm sm:text-base">
-                      <li>+994 99 344 54 34</li>
-                      <li>bwitcode@gmail.com</li>
+                      <li>+994 51 205 11 14</li>
+                      <li>support@bwitcode.com</li>
                     </ul>
                   </div>
                   <div className="space-y-4">

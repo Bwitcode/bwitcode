@@ -349,8 +349,8 @@ const Services = () => {
                   <div className="space-y-4">
                     <span className="text-sm text-secondary">Contact</span>
                     <ul>
-                      <li>+994 99 344 54 34</li>
-                      <li>bwitcode@gmail.com</li>
+                      <li>+994 51 205 11 14</li>
+                      <li>support@bwitcode.com</li>
                     </ul>
                   </div>
                   <div className="space-y-4">
